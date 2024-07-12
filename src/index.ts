@@ -4,4 +4,4 @@ export type {
   PluginOptions,
   ReturnUsePlausible,
   SettingsOptions,
-} from './types';
+} from './plugin';

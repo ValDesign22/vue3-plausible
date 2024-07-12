@@ -1,10 +1,48 @@
 import Plausible from 'plausible-tracker';
-import type { PluginOptions, ReturnUsePlausible } from './types';
+import type { PlausibleOptions } from 'plausible-tracker';
 import type { App } from 'vue';
 import { inject } from 'vue'
 
 interface ScriptLoaderOption extends Partial<HTMLScriptElement> {
   'data-domain': string;
+}
+
+export type IPlausible = typeof Plausible;
+export type ReturnUsePlausible = Omit<
+  ReturnType<typeof Plausible>,
+  'enableAutoPageviews' | 'enableAutoOutboundTracking'
+>;
+
+export interface SettingsOptions {
+  /**
+   * Enables automatic pageview tracking
+   * @default false
+   * @see https://github.com/plausible/plausible-tracker
+   * @type boolean
+   */
+  enableAutoPageviews?: boolean
+
+  /**
+   * Enables automatic outbound link tracking
+   * @default false
+   * @see https://plausible.io/docs/outbound-link-click-tracking
+   * @type boolean
+   */
+  enableAutoOutboundTracking?: boolean
+}
+
+export interface PluginOptions {
+  /**
+   * Plausible options
+   * @type PlausibleOptions
+   */
+  init: PlausibleOptions
+
+  /**
+   * Plugin options
+   * @type InstallOptions
+   */
+  settings: SettingsOptions
 }
 
 function loadScript(source: string, options: ScriptLoaderOption = {} as ScriptLoaderOption) {
@@ -50,7 +88,7 @@ export function createPlausible(options: PluginOptions) {
         plausibleInstance.enableAutoPageviews();
 
       loadScript(`${plausibleOptions.apiHost}/js/script.js`, {
-        'defer': true,
+        defer: true,
         'data-domain': plausibleOptions.domain || 'https://plausible.io',
       });
 

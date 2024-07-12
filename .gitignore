@@ -20,5 +20,5 @@ node_modules/
 # dotenv environment variables file
 .env*
 
-# build output
-lib/
+# Build output
+dist/

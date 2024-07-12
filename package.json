@@ -1,19 +1,25 @@
 {
   "name": "vue3-plausible",
+  "type": "module",
   "version": "1.0.0",
   "description": "Plausible analytics implementation for Vue.js 3",
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
-  "types": "./lib/types/index.d.ts",
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
   "files": [
-    "lib/"
+    "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
   "scripts": {
-    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DiscordAnalytics/vue3-plausible.git"
+    "url": "git+https://github.com/ValDesign22/vue3-plausible.git"
   },
   "keywords": [
     "analytics",
@@ -26,9 +32,9 @@
   "author": "ValDesign",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DiscordAnalytics/vue3-plausible/issues"
+    "url": "https://github.com/ValDesign22/vue3-plausible/issues"
   },
-  "homepage": "https://github.com/DiscordAnalytics/vue3-plausible#readme",
+  "homepage": "https://github.com/ValDesign22/vue3-plausible#readme",
   "dependencies": {
     "plausible-tracker": "^0.3.9"
   },
