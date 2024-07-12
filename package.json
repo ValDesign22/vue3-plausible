@@ -24,7 +24,7 @@
     "vue3"
   ],
   "author": "ValDesign",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/DiscordAnalytics/vue3-plausible/issues"
   },
