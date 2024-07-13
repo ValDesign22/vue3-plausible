@@ -1,7 +1,7 @@
 {
   "name": "vue3-plausible",
   "type": "module",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "Plausible analytics implementation for Vue.js 3",
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
