@@ -12,12 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci
+      - run: pnpm install
       - name: Build the package
-        run: npm run build
+        run: pnpm build
 
   publish-gpr:
     needs: build
@@ -27,14 +31,18 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
+      - run: pnpm install
       - name: Build the package
-        run: npm run build
+        run: pnpm build
       - name: Publish to GitHub Packages
-        run: npm publish
+        run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_PKG_TOKEN}}
