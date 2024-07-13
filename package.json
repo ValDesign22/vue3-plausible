@@ -35,10 +35,14 @@
     "url": "https://github.com/ValDesign22/vue3-plausible/issues"
   },
   "homepage": "https://github.com/ValDesign22/vue3-plausible#readme",
+  "peerDependencies": {
+    "vue": "^3.4.31"
+  },
   "dependencies": {
     "plausible-tracker": "^0.3.9"
   },
   "devDependencies": {
+    "@vue/runtime-core": "^3.4.31",
     "typescript": "^5.5.3",
     "vue": "^3.4.31"
   }
